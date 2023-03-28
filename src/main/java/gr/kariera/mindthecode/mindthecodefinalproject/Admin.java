@@ -1,4 +1,4 @@
-package gr.kariera.mindthecode.mindthecodefinalproject;
+/*package gr.kariera.mindthecode.mindthecodefinalproject;
 
 import lombok.Data;
 
@@ -7,4 +7,4 @@ public class Admin {
     private String name="admin";
     private String password = "admin1234";
 
-}
+}*/
