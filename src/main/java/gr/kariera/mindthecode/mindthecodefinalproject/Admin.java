@@ -4,8 +4,7 @@ import lombok.Data;
 
 @Data
 public class Admin {
-    String name="admin";
-    String password = "admin1234";
-
+    private String name="admin";
+    private String password = "admin1234";
 
 }
