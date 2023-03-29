@@ -1,6 +1,6 @@
 package gr.kariera.mindthecode.mindthecodefinalproject;
 
-import io.swagger.annotations.ApiModelProperty;
+//import io.swagger.annotations.ApiModelProperty;
 import jakarta.persistence.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,7 @@ public class ProductsOrder {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(nullable = false)
-    @ApiModelProperty(notes = "The email of the person that has placed this order")
+    //@ApiModelProperty(notes = "The email of the person that has placed this order")
     private String email;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -26,7 +26,7 @@ public class ProductsOrder {
 
     @OneToMany(cascade = { CascadeType.ALL })
     @JoinColumn(name = "PRODUCTS_ORDER_ID", referencedColumnName = "id", insertable = true, updatable = true)
-    @ApiModelProperty(notes = "The list order items of this order")
+    //@ApiModelProperty(notes = "The list order items of this order")
     private List<OrderItem> orderItems = new ArrayList<>();
 
     public ProductsOrder() {

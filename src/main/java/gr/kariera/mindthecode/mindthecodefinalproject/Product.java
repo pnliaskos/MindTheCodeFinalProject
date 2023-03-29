@@ -1,6 +1,6 @@
 package gr.kariera.mindthecode.mindthecodefinalproject;
 
-import io.swagger.annotations.ApiModelProperty;
+//import io.swagger.annotations.ApiModelProperty;
 import jakarta.persistence.*;
 import org.jetbrains.annotations.NotNull;
 
@@ -9,18 +9,18 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    @ApiModelProperty(notes = "The auto-generated id of the product")
+    //@ApiModelProperty(notes = "The auto-generated id of the product")
     private Long id;
 
     @Column(nullable=false)
-    @ApiModelProperty(notes = "The product name")
+    //@ApiModelProperty(notes = "The product name")
     private String name;
 
     /**
      * Product price
      */
     @Column(nullable=false)
-    @ApiModelProperty(notes = "The product price")
+    //@ApiModelProperty(notes = "The product price")
     private Double price = new Double(0.0);
 
     /**

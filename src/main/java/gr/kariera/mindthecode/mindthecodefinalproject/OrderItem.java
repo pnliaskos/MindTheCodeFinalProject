@@ -1,7 +1,7 @@
 package gr.kariera.mindthecode.mindthecodefinalproject;
 
 
-import io.swagger.annotations.ApiModelProperty;
+//import io.swagger.annotations.ApiModelProperty;
 import jakarta.persistence.*;
 import org.jetbrains.annotations.NotNull;
 
@@ -13,17 +13,17 @@ public class OrderItem {
 
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
-    @ApiModelProperty(notes = "The product that has been ordered ")
+    //@ApiModelProperty(notes = "The product that has been ordered ")
     private Product product;
 
     @Column(nullable=false)
     @NotNull
-    @ApiModelProperty(notes = "The quantity of the product that has been ordered ")
+    //@ApiModelProperty(notes = "The quantity of the product that has been ordered ")
     private Short quantity = new Short((short) 0);
 
     @Column(nullable=false)
     @NotNull
-    @ApiModelProperty(notes = "The current product price ")
+    //@ApiModelProperty(notes = "The current product price ")
     private Double price = new Double(0.0);
 
     @ManyToOne

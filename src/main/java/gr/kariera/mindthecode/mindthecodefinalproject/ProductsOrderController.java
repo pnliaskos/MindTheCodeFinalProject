@@ -1,9 +1,9 @@
 package gr.kariera.mindthecode.mindthecodefinalproject;
 
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+//import io.swagger.annotations.ApiOperation;
+//import io.swagger.annotations.ApiParam;
+//import io.swagger.annotations.ApiResponse;
+//import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
@@ -21,10 +21,10 @@ public class ProductsOrderController {
     @Autowired
     private ProductsOrderService orderService;
 
-    @ApiOperation(value = "View a list of all orders", response = List.class)
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successfully retrieved list"),
-    })
+    //@ApiOperation(value = "View a list of all orders", response = List.class)
+//    @ApiResponses(value = {
+//            @ApiResponse(code = 200, message = "Successfully retrieved list"),
+//    })
     @GetMapping
     ResponseEntity<List<ProductsOrder>> getAllOrders() {
         return ResponseEntity.ok( orderService.getAllOrders());
@@ -37,15 +37,15 @@ public class ProductsOrderController {
         return ResponseEntity.ok(orderService.getOrdersByTimePeriod(fromDate, toDate));
     };
 
-    @ApiOperation(value = "Retrieve the order given its product id ", response = ProductsOrder.class)
+    //@ApiOperation(value = "Retrieve the order given its product id ", response = ProductsOrder.class)
     @GetMapping("/{id}")
-    public ResponseEntity<ProductsOrder> getOrder(@ApiParam(value = "Order id", required = true) @PathVariable Long id) {
+    public ResponseEntity<ProductsOrder> getOrder( @PathVariable Long id) {
         return ResponseEntity.ok(orderService.getOrder(id));
     }
 
-    @ApiOperation(value = "Create a new order with all its order items ", response = ProductsOrder.class)
+    //@ApiOperation(value = "Create a new order with all its order items ", response = ProductsOrder.class)
     @PostMapping
-    public ResponseEntity<Object> createOrder(@ApiParam(value = "Order object including ist order items to store in database table", required = true) @RequestBody ProductsOrder order) {
+    public ResponseEntity<Object> createOrder(@RequestBody ProductsOrder order) {
         ProductsOrder savedOrder = orderService.addOrder(order);
         if(savedOrder != null) {
             URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(savedOrder.getId()).toUri();
@@ -55,17 +55,17 @@ public class ProductsOrderController {
         }
     }
 
-    @ApiOperation(value = "Update an order and its order items")
+    //@ApiOperation(value = "Update an order and its order items")
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Object> updateOrder(@ApiParam(value = "Products Order object to store in database table", required = true) @RequestBody ProductsOrder order, @ApiParam(value = "Order id", required = true) @PathVariable Long id) {
+    public ResponseEntity<Object> updateOrder( @RequestBody ProductsOrder order, @PathVariable Long id) {
         order.setId(id);
         orderService.updateOrder(order);
         return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping(value = "/{id}")
-    @ApiOperation(value = "Delete an order given its order id")
-    public void deleteOrder(@ApiParam(value = "Product id", required = true) @PathVariable Long id) {
+    //@ApiOperation(value = "Delete an order given its order id")
+    public void deleteOrder(@PathVariable Long id) {
         orderService.deleteOrder(id);
     }
 
