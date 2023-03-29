@@ -1,29 +1,95 @@
 package gr.kariera.mindthecode.mindthecodefinalproject;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
-import lombok.Data;
-
-import java.math.BigDecimal;
+import io.swagger.annotations.ApiModelProperty;
+import jakarta.persistence.*;
+import org.jetbrains.annotations.NotNull;
 
 @Entity
-@Data
 public class Product {
 
     @Id
-    @GeneratedValue
-    private Integer product_id;
-    private String product_title;
-    private String product_category;
-    private BigDecimal product_price;
-    private String product_size;
-    private String product_color;
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @ApiModelProperty(notes = "The auto-generated id of the product")
+    private Long id;
 
-    // Used for large object like images
-    @Lob
-    private byte[] image;
-    private String product_description;
+    @Column(nullable=false)
+    @ApiModelProperty(notes = "The product name")
+    private String name;
+
+    /**
+     * Product price
+     */
+    @Column(nullable=false)
+    @ApiModelProperty(notes = "The product price")
+    private Double price = new Double(0.0);
+
+    /**
+     * No args constructor
+     */
+    public Product() {
+
+    }
+
+    /**
+     * Constructor of a product given its name and price
+     * @param name the product name
+     * @param price the product price
+     */
+    public Product(String name, Double price) {
+        super();
+        this.name = name;
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Product[id=%d, name='%s', price='%d']",
+                id, name, price);
+    }
+
+    /**
+     * @return the id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the price
+     */
+    public Double getPrice() {
+        return price;
+    }
+
+    /**
+     * @param price the price to set
+     */
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+
 
 }
