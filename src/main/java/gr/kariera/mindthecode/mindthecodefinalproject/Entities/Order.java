@@ -62,8 +62,6 @@ public class Order {
                 })
                 .collect(Collectors.toList());
     }
-
-    @Transient
     private BigDecimal totalCost;
 
     public BigDecimal getTotalCost() {

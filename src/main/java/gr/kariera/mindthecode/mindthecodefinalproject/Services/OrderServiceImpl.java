@@ -27,7 +27,6 @@ public class OrderServiceImpl implements OrderService{
         Order order = new Order();
         order.setAddress(newOrder.getAddress());
         order = orderRepo.save(order);
-
         final Order finalOrder = order;
         newOrder.getProducts()
                 .stream()
@@ -50,9 +49,12 @@ public class OrderServiceImpl implements OrderService{
                 });
 
 
-        Order result = orderRepo.save(finalOrder);
-        return orderRepo.findById(result.getId())
+        order.setTotalCost(order.getTotalCost());
+        orderRepo.save(order);
+
+        Order result = orderRepo.findById(order.getId())
                 .orElseThrow();
+        return result;
     }
 
     @Override

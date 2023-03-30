@@ -7,6 +7,5 @@ import java.math.BigDecimal;
 @Data
 public class ProductWithQuantityExtendedDto extends ProductWithQuantityDto{
     private BigDecimal price;
-
     private String description;
 }
