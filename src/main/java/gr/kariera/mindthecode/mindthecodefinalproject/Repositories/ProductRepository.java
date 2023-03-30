@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {
     Page<Product> findByTitleContainingIgnoreCase(String title, Pageable pageable);
+    Page<Product> findAll(Pageable pageable);
 
 
 }

@@ -3,8 +3,10 @@ package gr.kariera.mindthecode.mindthecodefinalproject.Services;
 import gr.kariera.mindthecode.mindthecodefinalproject.DTOs.ProductDto;
 import gr.kariera.mindthecode.mindthecodefinalproject.Entities.Product;
 import gr.kariera.mindthecode.mindthecodefinalproject.Repositories.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -55,4 +57,24 @@ public class ProductServiceImpl implements ProductService{
         }
         return res;
     }
+
+    @Autowired
+    private ProductRepository productRepository;
+
+    @Override
+    public Page<ProductDto> getAllProducts(Pageable pageable) {
+        Page<Product> products = productRepository.findAll(pageable);
+        return products.map(this::convertToDto);
+    }
+
+    private ProductDto convertToDto(Product product) {
+        ProductDto productDto = new ProductDto();
+        productDto.setTitle(product.getTitle());
+        productDto.setPrice(product.getPrice());
+        productDto.setCategory(product.getCategory());
+        productDto.setImagePath(product.getImagePath());
+        return productDto;
+    }
+
+
 }

@@ -4,6 +4,7 @@ import gr.kariera.mindthecode.mindthecodefinalproject.DTOs.ProductDto;
 import gr.kariera.mindthecode.mindthecodefinalproject.Entities.Product;
 import gr.kariera.mindthecode.mindthecodefinalproject.Services.ProductService;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
@@ -41,13 +42,8 @@ public class ProductApiController {
     }
 
     @GetMapping("/products")
-    public Page<Product> all(
-            @RequestParam(required = false) String title,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "3") int size,
-            @RequestParam(defaultValue = "ASC", required = false) String sort
-    ) {
-        return service.getProducts(title, page, size, sort);
+    public Page<ProductDto> getAllProducts(Pageable pageable) {
+        return service.getAllProducts(pageable);
     }
 
     @DeleteMapping("/products/{id}")
