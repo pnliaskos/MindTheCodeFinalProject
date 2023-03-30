@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProductServiceImpl implements ProductService{
-    private final ProductRepository repo;
+    private final ProductRepository productRepository;
 
     public ProductServiceImpl(ProductRepository repo) {
-        this.repo = repo;
+        this.productRepository = repo;
 
     }
     @Override
@@ -25,22 +25,23 @@ public class ProductServiceImpl implements ProductService{
                 throw new Exception("id in path does not patch id in body");
             }
         }
-        return repo.save(product);
+        return productRepository.save(product);
     }
 
     @Override
     public void deleteProduct(Integer id) {
-        Product match = repo.findById(id)
+        Product match = productRepository.findById(id)
                 .orElseThrow();
-        repo.delete(match);
+        productRepository.delete(match);
     }
 
     @Override
     public Product getById(Integer id) {
-        return repo.findById(id)
+        return productRepository.findById(id)
                 .orElseThrow();
     }
 
+    // Not used
     @Override
     public Page<Product> getProducts(String title, int page, int size, String sort) {
         PageRequest paging = PageRequest
@@ -51,15 +52,12 @@ public class ProductServiceImpl implements ProductService{
 
         Page<Product> res;
         if (title == null) {
-            res = repo.findAll(paging);
+            res = productRepository.findAll(paging);
         } else {
-            res = repo.findByTitleContainingIgnoreCase(title, paging);
+            res = productRepository.findByTitleContainingIgnoreCase(title, paging);
         }
         return res;
     }
-
-    @Autowired
-    private ProductRepository productRepository;
 
     @Override
     public Page<ProductDto> getAllProducts(Pageable pageable) {
