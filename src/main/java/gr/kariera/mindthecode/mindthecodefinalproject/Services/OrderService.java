@@ -3,9 +3,7 @@ package gr.kariera.mindthecode.mindthecodefinalproject.Services;
 import gr.kariera.mindthecode.mindthecodefinalproject.DTOs.NewOrderDto;
 import gr.kariera.mindthecode.mindthecodefinalproject.Entities.Order;
 import org.springframework.data.domain.Page;
-import org.springframework.stereotype.Service;
 
-@Service
 public interface OrderService {
     public abstract Order newOrder(NewOrderDto newOrder) throws Exception;
 
