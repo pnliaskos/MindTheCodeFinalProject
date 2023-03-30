@@ -1,5 +1,6 @@
 package gr.kariera.mindthecode.mindthecodefinalproject.Services;
 
+import gr.kariera.mindthecode.mindthecodefinalproject.DTOs.ProductDto;
 import gr.kariera.mindthecode.mindthecodefinalproject.Entities.Product;
 import gr.kariera.mindthecode.mindthecodefinalproject.Repositories.ProductRepository;
 import org.springframework.data.domain.Page;
@@ -13,6 +14,7 @@ public class ProductServiceImpl implements ProductService{
 
     public ProductServiceImpl(ProductRepository repo) {
         this.repo = repo;
+
     }
     @Override
     public Product createOrUpdateProduct(Integer id, Product product) throws Exception {

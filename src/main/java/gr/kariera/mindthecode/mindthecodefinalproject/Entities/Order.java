@@ -49,7 +49,7 @@ public class Order {
     @Transient
     private Collection<ProductWithQuantityDto> products;
 
-    public Collection<ProductWithQuantityDto>  getProducts() {
+    public Collection<ProductWithQuantityDto> getProducts() {
         return orderProducts
                 .stream()
                 .map(op -> {

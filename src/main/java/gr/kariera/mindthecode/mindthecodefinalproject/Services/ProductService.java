@@ -1,5 +1,6 @@
 package gr.kariera.mindthecode.mindthecodefinalproject.Services;
 
+import gr.kariera.mindthecode.mindthecodefinalproject.DTOs.ProductDto;
 import gr.kariera.mindthecode.mindthecodefinalproject.Entities.Product;
 import org.springframework.data.domain.Page;
 
