@@ -1,3 +1,4 @@
+/*
 package gr.kariera.mindthecode.mindthecodefinalproject.Entities;
 
 import jakarta.persistence.*;
@@ -26,3 +27,4 @@ public class UserEntity {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private List<Role> roles = new ArrayList<>();
 }
+*/

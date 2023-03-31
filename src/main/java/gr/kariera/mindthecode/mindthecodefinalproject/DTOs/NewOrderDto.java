@@ -8,6 +8,8 @@ import java.util.Collection;
 
 @Data
 public class NewOrderDto implements Serializable {
+
+    private Integer id;
     private String address;
 
     private Collection<ProductWithQuantityDto> products;

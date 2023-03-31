@@ -1,3 +1,4 @@
+/*
 package gr.kariera.mindthecode.mindthecodefinalproject.Entities;
 
 import jakarta.persistence.*;
@@ -17,3 +18,4 @@ public class Role {
 
     private String name;
 }
+*/
