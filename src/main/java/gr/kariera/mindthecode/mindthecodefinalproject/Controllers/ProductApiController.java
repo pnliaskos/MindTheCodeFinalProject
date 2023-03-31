@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -44,7 +45,7 @@ public class ProductApiController {
     }
 
     @GetMapping("/products/title/{title}")
-    public Product byTitle(@PathVariable String title) {
+    public List<Product> byTitle(@PathVariable String title) {
         return service.getByTitle(title);
     }
 
