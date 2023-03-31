@@ -1,4 +1,4 @@
-/*
+
 package gr.kariera.mindthecode.mindthecodefinalproject.Repositories;
 
 import gr.kariera.mindthecode.mindthecodefinalproject.Entities.UserEntity;
@@ -10,4 +10,4 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
     Optional<UserEntity> findByUsername(String username);
     Boolean existsByUsername(String username);
 }
-*/
+

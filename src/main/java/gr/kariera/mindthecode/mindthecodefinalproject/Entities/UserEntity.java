@@ -1,9 +1,10 @@
-/*
+
 package gr.kariera.mindthecode.mindthecodefinalproject.Entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 
 import java.util.ArrayList;
@@ -27,4 +28,3 @@ public class UserEntity {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private List<Role> roles = new ArrayList<>();
 }
-*/

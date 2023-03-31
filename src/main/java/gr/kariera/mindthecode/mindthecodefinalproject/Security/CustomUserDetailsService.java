@@ -1,4 +1,4 @@
-/*
+
 package gr.kariera.mindthecode.mindthecodefinalproject.Security;
 
 
@@ -38,4 +38,4 @@ public class CustomUserDetailsService implements UserDetailsService {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
     }
 }
-*/
+

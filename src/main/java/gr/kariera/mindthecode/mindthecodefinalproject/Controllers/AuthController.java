@@ -1,4 +1,4 @@
-/*
+
 package gr.kariera.mindthecode.mindthecodefinalproject.Controllers;
 
 
@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Collections;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api")
 public class AuthController {
 
     private AuthenticationManager authenticationManager;
@@ -36,8 +36,8 @@ public class AuthController {
 
     @Autowired
     public AuthController(AuthenticationManager authenticationManager, UserRepository userRepository,
-                          RoleRepository roleRepository, PasswordEncoder passwordEncoder */
-/*JWTGenerator jwtGenerator*//*
+                          RoleRepository roleRepository, PasswordEncoder passwordEncoder
+
 ) {
         this.authenticationManager = authenticationManager;
         this.userRepository = userRepository;
@@ -73,4 +73,4 @@ public class AuthController {
         return new ResponseEntity<>("User registered success!", HttpStatus.OK);
     }
 }
-*/
+
