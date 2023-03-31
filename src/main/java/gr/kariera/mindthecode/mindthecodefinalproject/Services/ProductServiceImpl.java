@@ -9,6 +9,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.math.BigDecimal;
 
 @Service
 public class ProductServiceImpl implements ProductService{
@@ -35,33 +38,35 @@ public class ProductServiceImpl implements ProductService{
         productRepository.delete(match);
     }
 
+
+
     @Override
     public Product getById(Integer id) {
         return productRepository.findById(id)
                 .orElseThrow();
     }
 
-    // Not used
+
     @Override
-    public Page<Product> getProducts(String title, int page, int size, String sort) {
+    public Page<ProductDto> getAllProducts(
+            @RequestParam(required = false) BigDecimal price,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "3") int size,
+            @RequestParam(defaultValue = "ASC", required = false) String sort
+    ) {
         PageRequest paging = PageRequest
                 .of(page, size)
                 .withSort(sort.equalsIgnoreCase("ASC") ?
-                        Sort.by("title").ascending() :
-                        Sort.by("title").descending());
+                        Sort.by("price").ascending() :
+                        Sort.by("price").descending());
 
-        Page<Product> res;
-        if (title == null) {
-            res = productRepository.findAll(paging);
+        Page<Product> products;
+        if (price == null) {
+            products = productRepository.findAll(paging);
         } else {
-            res = productRepository.findByTitleContainingIgnoreCase(title, paging);
+            products = productRepository.findByPrice(price, paging);
         }
-        return res;
-    }
 
-    @Override
-    public Page<ProductDto> getAllProducts(Pageable pageable) {
-        Page<Product> products = productRepository.findAll(pageable);
         return products.map(this::convertToDto);
     }
 
