@@ -1,8 +1,8 @@
-/*
 package gr.kariera.mindthecode.mindthecodefinalproject.Security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -19,8 +19,8 @@ public class SecurityConfig {
     private CustomUserDetailsService userDetailsService;
 
 
-*/
-/*    @Bean
+
+  @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
@@ -29,13 +29,13 @@ public class SecurityConfig {
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .authorizeRequests()
-                .antMatchers("/api/auth/**").permitAll()
+                .authorizeHttpRequests()
+                .requestMatchers("/api/auth/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();
         return http.build();
-    }*//*
+    }
 
 
     @Bean
@@ -51,4 +51,4 @@ public class SecurityConfig {
 
 
 }
-*/
+
