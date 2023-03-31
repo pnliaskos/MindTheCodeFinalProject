@@ -44,7 +44,7 @@ public class ProductApiController {
     }
 
     @GetMapping("/products")
-    public Page<ProductDto> getAllProducts(BigDecimal price, int page, int size, String sort) {
+    public Page<ProductDto> getAllProducts(BigDecimal price, Integer page, Integer size, String sort) {
         return service.getAllProducts(price, page, size, sort);
     }
 

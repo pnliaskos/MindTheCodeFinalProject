@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements ProductService{
@@ -50,13 +51,22 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public Page<ProductDto> getAllProducts(
             @RequestParam(required = false) BigDecimal price,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "3") int size,
+            @RequestParam(required = false) Integer page,
+            @RequestParam(required = false) Integer size,
             @RequestParam(defaultValue = "ASC", required = false) String sort
     ) {
+        Optional<Integer> pageOptional = Optional.ofNullable(page);
+        int pageNumber = pageOptional.orElse(0);
+
+        Optional<Integer> sizeOptional = Optional.ofNullable(size);
+        int sizeNumber = sizeOptional.orElse(3);
+
+        Optional<String> sortOptional = Optional.ofNullable(sort);
+        String sortOrder = sortOptional.orElse("ASC");
+
         PageRequest paging = PageRequest
-                .of(page, size)
-                .withSort(sort.equalsIgnoreCase("ASC") ?
+                .of(pageNumber, sizeNumber)
+                .withSort(sortOrder.equalsIgnoreCase("ASC") ?
                         Sort.by("price").ascending() :
                         Sort.by("price").descending());
 

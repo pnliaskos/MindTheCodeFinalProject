@@ -13,5 +13,5 @@ public interface ProductService {
 
 
     public abstract Product getById(Integer id);
-    Page<ProductDto> getAllProducts(BigDecimal price, int page, int size, String sort);
+    Page<ProductDto> getAllProducts(BigDecimal price, Integer page, Integer size, String sort);
 }
