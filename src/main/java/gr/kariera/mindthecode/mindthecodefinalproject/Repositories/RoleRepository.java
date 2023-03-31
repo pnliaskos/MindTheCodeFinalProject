@@ -1,8 +1,8 @@
-package com.pokemonreview.api.repository;
+package gr.kariera.mindthecode.mindthecodefinalproject.Repositories;
 
-import com.pokemonreview.api.models.Role;
+
+import gr.kariera.mindthecode.mindthecodefinalproject.Entities.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
-
 
 import java.util.Optional;
 
