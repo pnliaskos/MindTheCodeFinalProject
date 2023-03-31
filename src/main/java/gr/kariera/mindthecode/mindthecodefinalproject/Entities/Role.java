@@ -1,9 +1,10 @@
-package com.pokemonreview.api.models;
+package gr.kariera.mindthecode.mindthecodefinalproject.Entities;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+
 
 @Setter
 @Getter
