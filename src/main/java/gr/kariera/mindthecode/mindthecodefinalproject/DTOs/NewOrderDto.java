@@ -12,6 +12,9 @@ public class NewOrderDto implements Serializable {
     private Integer id;
     private String address;
 
+    private String status;
+    private String userName;
+
     private Collection<ProductWithQuantityDto> products;
 
     public NewOrderDto() {
