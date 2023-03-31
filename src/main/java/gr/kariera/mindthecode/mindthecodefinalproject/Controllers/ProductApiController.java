@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
+import java.math.BigDecimal;
+
 @RestController
 @RequestMapping(path = "/api")
 public class ProductApiController {
@@ -42,8 +44,8 @@ public class ProductApiController {
     }
 
     @GetMapping("/products")
-    public Page<ProductDto> getAllProducts(Pageable pageable) {
-        return service.getAllProducts(pageable);
+    public Page<ProductDto> getAllProducts(BigDecimal price, Integer page, Integer size, String sort) {
+        return service.getAllProducts(price, page, size, sort);
     }
 
     @DeleteMapping("/products/{id}")
