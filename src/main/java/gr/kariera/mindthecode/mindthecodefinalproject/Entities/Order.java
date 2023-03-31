@@ -22,6 +22,10 @@ public class Order {
 
     private String address;
 
+    private String status;
+
+    private String userName;
+
     public Order() {
         this.orderProducts = new ArrayList<>();
     }

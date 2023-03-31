@@ -3,10 +3,8 @@ package gr.kariera.mindthecode.mindthecodefinalproject.Services;
 import gr.kariera.mindthecode.mindthecodefinalproject.DTOs.ProductDto;
 import gr.kariera.mindthecode.mindthecodefinalproject.Entities.Product;
 import gr.kariera.mindthecode.mindthecodefinalproject.Repositories.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,6 +43,10 @@ public class ProductServiceImpl implements ProductService{
     public Product getById(Integer id) {
         return productRepository.findById(id)
                 .orElseThrow();
+    }
+    @Override
+    public Product getByTitle(String title){
+        return productRepository.findByTitle(title);
     }
 
 
