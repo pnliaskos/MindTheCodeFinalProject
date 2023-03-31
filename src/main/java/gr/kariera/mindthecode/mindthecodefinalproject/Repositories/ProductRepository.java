@@ -10,6 +10,8 @@ import java.math.BigDecimal;
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {
     Page<Product> findByPrice(BigDecimal price, Pageable pageable);
+    Product findByTitle(String title);
     Page<Product> findAll(Pageable pageable);
+
 
 }

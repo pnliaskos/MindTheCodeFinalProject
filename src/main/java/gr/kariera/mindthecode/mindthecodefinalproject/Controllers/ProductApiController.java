@@ -43,6 +43,11 @@ public class ProductApiController {
         return service.getById(id);
     }
 
+    @GetMapping("/products/title/{title}")
+    public Product byTitle(@PathVariable String title) {
+        return service.getByTitle(title);
+    }
+
     @GetMapping("/products")
     public Page<ProductDto> getAllProducts(BigDecimal price, Integer page, Integer size, String sort) {
         return service.getAllProducts(price, page, size, sort);
