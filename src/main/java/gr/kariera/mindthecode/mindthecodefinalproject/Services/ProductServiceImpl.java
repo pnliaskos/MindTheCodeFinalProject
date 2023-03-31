@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -45,7 +46,7 @@ public class ProductServiceImpl implements ProductService{
                 .orElseThrow();
     }
     @Override
-    public Product getByTitle(String title){
+    public List<Product> getByTitle(String title) {
         return productRepository.findByTitle(title);
     }
 
