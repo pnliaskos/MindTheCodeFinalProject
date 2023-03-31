@@ -20,7 +20,7 @@ public class Order {
     @Id
     private Integer id;
 
-        private String address;
+    private String address;
 
     public Order() {
         this.orderProducts = new ArrayList<>();
