@@ -3,6 +3,7 @@ package gr.kariera.mindthecode.mindthecodefinalproject.Controllers;
 import gr.kariera.mindthecode.mindthecodefinalproject.DTOs.NewOrderDto;
 import gr.kariera.mindthecode.mindthecodefinalproject.Entities.Order;
 import gr.kariera.mindthecode.mindthecodefinalproject.Services.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.web.bind.annotation.*;
@@ -11,8 +12,8 @@ import org.springframework.web.client.HttpClientErrorException;
 @RestController
 @RequestMapping(path = "/api")
 public class OrderApiController {
-    private final OrderService orderService;
 
+    private final OrderService orderService;
 
     public OrderApiController(OrderService orderService) {
         this.orderService = orderService;
@@ -43,4 +44,12 @@ public class OrderApiController {
         }
     }
 
+    @PutMapping("/orders/{id}")
+    public Order updateOrder(@PathVariable Integer id, @RequestBody Order order) {
+        try {
+            return orderService.update(id, order);
+        } catch (Exception e) {
+            throw new HttpClientErrorException(HttpStatusCode.valueOf(400), e.getMessage());
+        }
+    }
 }

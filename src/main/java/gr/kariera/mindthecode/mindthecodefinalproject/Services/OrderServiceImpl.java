@@ -10,7 +10,12 @@ import gr.kariera.mindthecode.mindthecodefinalproject.Repositories.ProductReposi
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
+
+import java.util.Optional;
 
 @Service
 public class OrderServiceImpl implements OrderService{
@@ -56,6 +61,16 @@ public class OrderServiceImpl implements OrderService{
         Order result = orderRepo.findById(order.getId())
                 .orElseThrow();
         return result;
+    }
+
+    @Override
+    public Order update(Integer id, Order order) throws Exception {
+        if (id != null) {
+            if (!id.equals(order.getId())) {
+                throw new Exception("id in path does not patch id in body");
+            }
+        }
+        return orderRepo.save(order);
     }
 
     @Override
