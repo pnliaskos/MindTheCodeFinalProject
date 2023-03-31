@@ -19,8 +19,10 @@ public class Order {
     @GeneratedValue
     @Id
     private Integer id;
-
     private String address;
+    private String status;
+    private String userName;
+
 
     public Order() {
         this.orderProducts = new ArrayList<>();
@@ -35,9 +37,11 @@ public class Order {
         this.orderProducts = new ArrayList<>();
     }
 
-    public Order(Collection<OrderProduct> products, String address) {
+    public Order(Collection<OrderProduct> products, String address, String status, String userName) {
         this.orderProducts = products;
         this.address = address;
+        this.status = status;
+        this.userName = userName;
     }
 
 
