@@ -11,6 +11,7 @@ import org.springframework.web.client.HttpClientErrorException;
 
 @RestController
 @RequestMapping(path = "/api")
+@CrossOrigin(origins = "http://localhost:8080")
 public class OrderApiController {
 
     private final OrderService orderService;
