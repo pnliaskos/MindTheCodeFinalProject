@@ -2,6 +2,12 @@ package gr.kariera.mindthecode.mindthecodefinalproject.Controllers;
 
 
 
+import gr.kariera.mindthecode.mindthecodefinalproject.DTOs.LoginDto;
+import gr.kariera.mindthecode.mindthecodefinalproject.DTOs.RegisterDto;
+import gr.kariera.mindthecode.mindthecodefinalproject.Entities.Role;
+import gr.kariera.mindthecode.mindthecodefinalproject.Entities.UserEntity;
+import gr.kariera.mindthecode.mindthecodefinalproject.Repositories.RoleRepository;
+import gr.kariera.mindthecode.mindthecodefinalproject.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
