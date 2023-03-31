@@ -24,7 +24,7 @@ public class Order {
 
     private String status;
 
-    private String userName;
+    private String username;
 
     public Order() {
         this.orderProducts = new ArrayList<>();
@@ -58,10 +58,11 @@ public class Order {
                 .stream()
                 .map(op -> {
                     ProductWithQuantityExtendedDto pwq = new ProductWithQuantityExtendedDto();
-                    pwq.setProductId(op.getProduct().getId());
+                    pwq.setId(op.getProduct().getId());
                     pwq.setQuantity(op.getQuantity());
                     pwq.setDescription(op.getProduct().getDescription());
                     pwq.setPrice(op.getProduct().getPrice());
+                    pwq.setTitle(op.getProduct().getTitle());
                     return pwq;
                 })
                 .collect(Collectors.toList());

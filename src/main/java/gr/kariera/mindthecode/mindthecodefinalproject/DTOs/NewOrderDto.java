@@ -13,7 +13,7 @@ public class NewOrderDto implements Serializable {
     private String address;
 
     private String status;
-    private String userName;
+    private String username;
 
     private Collection<ProductWithQuantityDto> products;
 

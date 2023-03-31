@@ -10,12 +10,7 @@ import gr.kariera.mindthecode.mindthecodefinalproject.Repositories.ProductReposi
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
-
-import java.util.Optional;
 
 @Service
 public class OrderServiceImpl implements OrderService{
@@ -32,7 +27,7 @@ public class OrderServiceImpl implements OrderService{
         Order order = new Order();
         order.setAddress(newOrder.getAddress());
         order.setId(newOrder.getId());
-        order.setUserName(newOrder.getUserName());
+        order.setUsername(newOrder.getUsername());
         order.setStatus(newOrder.getStatus());
         order = orderRepo.save(order);
         final Order finalOrder = order;
@@ -41,7 +36,7 @@ public class OrderServiceImpl implements OrderService{
                 .forEach(nop -> {
 
                     Product p = productRepo
-                            .findById(nop.getProductId())
+                            .findById(nop.getId())
                             .orElseThrow();
                     OrderProduct op = new OrderProduct();
                     OrderProductPK opPK = new OrderProductPK();

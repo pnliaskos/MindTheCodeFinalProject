@@ -7,7 +7,8 @@ import java.io.Serializable;
 @Data
 public class ProductWithQuantityDto implements Serializable {
 
-    private Integer productId;
+    private Integer id;
+    private String title;
     private Integer quantity;
 
 }
