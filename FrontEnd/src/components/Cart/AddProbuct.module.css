@@ -1,0 +1,15 @@
+.form
+{ 
+  display: flex;
+  flex-direction: column;
+}
+
+.form label
+{
+  color: black;
+}
+
+.form input
+{
+  margin-bottom: 1rem;
+}
