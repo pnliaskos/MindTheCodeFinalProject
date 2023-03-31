@@ -1,4 +1,4 @@
-package com.pokemonreview.api.dto;
+package gr.kariera.mindthecode.mindthecodefinalproject.DTOs;
 
 import lombok.Data;
 
