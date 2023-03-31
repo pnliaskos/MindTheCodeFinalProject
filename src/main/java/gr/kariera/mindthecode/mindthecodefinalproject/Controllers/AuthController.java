@@ -1,13 +1,7 @@
-package com.pokemonreview.api.controllers;
+package gr.kariera.mindthecode.mindthecodefinalproject.Controllers;
 
-//import com.pokemonreview.api.dto.AuthResponseDTO;
-import com.pokemonreview.api.dto.LoginDto;
-import com.pokemonreview.api.dto.RegisterDto;
-import com.pokemonreview.api.models.Role;
-import com.pokemonreview.api.models.UserEntity;
-import com.pokemonreview.api.repository.RoleRepository;
-import com.pokemonreview.api.repository.UserRepository;
-//import com.pokemonreview.api.security.JWTGenerator;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +25,7 @@ public class AuthController {
     private UserRepository userRepository;
     private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
-//    private JWTGenerator jwtGenerator;
+
 
     @Autowired
     public AuthController(AuthenticationManager authenticationManager, UserRepository userRepository,
@@ -40,7 +34,6 @@ public class AuthController {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
-//        this.jwtGenerator = jwtGenerator;
     }
 
     @PostMapping("login")
@@ -50,7 +43,6 @@ public class AuthController {
                 loginDto.getUsername(),
                 loginDto.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
-//        String token = jwtGenerator.generateToken(authentication);
         return new ResponseEntity<>("User signed success!!", HttpStatus.OK);
     }
 
